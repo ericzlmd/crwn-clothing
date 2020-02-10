@@ -1,4 +1,6 @@
 import React from "react";
+// prop tunneling:    ✋🏼
+// react withRouter:  🤙🏼
 import { withRouter } from "react-router-dom";
 import "./menu-item.styles.scss";
 
@@ -6,6 +8,7 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => {
   return (
     <div
       className={`${size} menu-item`}
+      // highjacking url with component page path appended
       onClick={() => history.push(`${match.url}${linkUrl}`)}
     >
       <div
@@ -22,4 +25,5 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => {
   );
 };
 
+// Higher Order Component - this provides access to props.match.history
 export default withRouter(MenuItem);
